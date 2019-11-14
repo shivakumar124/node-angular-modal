@@ -1,0 +1,48 @@
+<div>
+<input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+
+<button type="button" class="btn btn-success btn-s" 
+  (click)="uploader.uploadAll()" 
+  [disabled]="!uploader.getNotUploadedItems().length" >
+      Upload an Image
+</button>
+</div>
+<br/>
+<div class="container">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>File Name</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let file of files">
+                <td>{{ file.originalname }}</td>
+                <td><button class="btn btn-primary button" (click)="downloadPdf(file.filename, file.contentType)">Download</button></td>
+              </tr>   
+            </tbody>
+          </table>
+      </div>
+<!-- <div> Months :
+   <select>
+      <option *ngFor = "let i of months">{{i}}</option>
+   </select>
+</div> -->
+<!-- <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>S.no</td>
+                <td>file Name</td>
+            </tr>
+            </thead>
+          
+            <tbody>
+                <tr *ngFor="let list of productlist let i = index">
+                        <td>{{i + 1}}</td>
+                    <td>{{ list.productname }}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div> -->

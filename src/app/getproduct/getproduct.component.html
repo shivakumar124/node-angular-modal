@@ -1,0 +1,44 @@
+
+<div class="search-results"
+infinite-scroll
+[infiniteScrollDistance]="1"
+[infiniteScrollUpDistance]="2"
+[infiniteScrollThrottle]="300"
+(scrolled)="onScrollDown()"
+(scrolledUp)="onScrollUp()"
+[infiniteScrollDisabled]="isFullListDisplayed"
+[scrollWindow]="false">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>S.no</td>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Description</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            </thead>
+          
+            <tbody>
+                <tr *ngFor="let list of productlist let i = index">
+                        <td>{{i + 1}}</td>
+                    <td>{{ list.productname }}</td>
+                    <td>{{ list.price }}</td>
+                    <td>{{ list.description }}</td>
+                    <td><a (click)="editProduct(list._id)" class="btn btn-primary">Edit</a></td>
+                    <td><a (click) = "deleteProduct(list._id)" class="btn btn-danger">Delete</a></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <style>
+          
+        
+      
+         .search-results {
+              height: 450px;
+              overflow: scroll;
+            }
+        
+        </style>

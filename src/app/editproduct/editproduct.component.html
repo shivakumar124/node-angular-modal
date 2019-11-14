@@ -1,0 +1,51 @@
+
+<div id="modalhide">
+  <div class="modal-content">
+   <div class="modal-header"> 
+    <h4  class="modal-title pull-center">Edit Product Details</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModalDialog()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+    <div class="modal-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Product Name</label>
+          <input type="text" class="form-control" formControlName="productname" #productname [(ngModel)] = "product.productname" />
+        </div>
+        <div *ngIf="angForm.controls['productname'].invalid && (angForm.controls['productname'].dirty || angForm.controls['productname'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['productname'].errors.required">
+            Product Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Price </label>
+          <input type="text" class="form-control" formControlName="price" #price [(ngModel)] = "product.price" />
+        </div>
+        <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['price'].errors.required">
+            price is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Description</label>
+          <input type="text" class="form-control" formControlName="description" #description [(ngModel)] = "product.description" />
+        </div>
+        <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['description'].errors.required">
+            description is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="updateProduct(productname.value, price.value, description.value,product._id)"
+          [disabled]="angForm.invalid" 
+          class="btn btn-primary">Update Product</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      
+    </div>
+  </div>
+</div>
+  

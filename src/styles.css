@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng2-slim-loading-bar/style.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.ng-sidebar {
+    background: red;
+    width: 13rem;
+}
+
+.ng-sidebar--right {
+    color: red !important;
+    background: antiquewhite;
+    width: 12rem;
+}
+
+.container {
+    max-width: 1020px;
+}
